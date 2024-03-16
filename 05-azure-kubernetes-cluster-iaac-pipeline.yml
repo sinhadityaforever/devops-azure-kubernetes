@@ -38,7 +38,7 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     environmentServiceName: 'arm-service-connection'
     runAzLogin: true
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client-secret) -var ssh_public_keys=$(publicKey.secureFilePath)'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client-secret)'
     allowTelemetryCollection: false
 
    
