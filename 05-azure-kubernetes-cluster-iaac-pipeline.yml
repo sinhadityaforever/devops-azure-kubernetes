@@ -15,30 +15,30 @@ steps:
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client-secret) -var ssh_public_keys=$(publicKey.secureFilePath)'
+    # commandOptions: '-var client_id=$(client_id) -var client_secret=$(client-secret) -var ssh_public_keys=$(publicKey.secureFilePath)'
     backendType: 'azurerm'
     backendServiceArm: 'arm-service-connection'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'terraform-backend-rg'
     backendAzureRmResourceGroupLocation: 'westeurope'
-    backendAzureRmStorageAccountName: 'storageaccountaadii82101'
-    backendAzureRmContainerName: 'storageaccountaadii'
-    backendAzureRmKey: 'kubernetes-dev.tfstate'
+    backendAzureRmStorageAccountName: 'storageaccountaadii821010'
+    backendAzureRmContainerName: 'storageaccountaadii0'
+    backendAzureRmKey: 'kubernetesdev.tfstate'
     allowTelemetryCollection: true
 
-# - task: TerraformCLI@2
-#   inputs:
-#     command: 'apply'
-#     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
-#     environmentServiceName: 'arm-service-connection'
-#     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client-secret) -var ssh_public_keys=$(publicKey.secureFilePath)'
 - task: TerraformCLI@2
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     environmentServiceName: 'arm-service-connection'
-    runAzLogin: true
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client-secret)'
-    allowTelemetryCollection: false
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client-secret) -var ssh_public_keys=$(publicKey.secureFilePath)'
+# - task: TerraformCLI@2
+#   inputs:
+#     command: 'apply'
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
+#     environmentServiceName: 'arm-service-connection'
+#     runAzLogin: true
+#     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client-secret)'
+#     allowTelemetryCollection: false
 
    
