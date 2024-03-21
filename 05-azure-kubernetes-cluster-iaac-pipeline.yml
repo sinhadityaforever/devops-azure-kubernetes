@@ -31,8 +31,7 @@ steps:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure/kubernetes'
     environmentServiceName: 'arm-service-connection'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client-secret)'
-    # commandOptions: '-lock=false -var client_id=$(client_id) -var client_secret=$(client-secret) -var ssh_public_keys=$(publicKey.secureFilePath)'
+    commandOptions: '-lock=false -var client_id=$(client_id) -var client_secret=$(client-secret) -var ssh_public_key=$(publicKey.secureFilePath)'
 # - task: TerraformCLI@2
 #   inputs:
 #     command: 'apply'
